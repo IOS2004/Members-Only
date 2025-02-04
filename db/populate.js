@@ -1,6 +1,6 @@
 #! /usr/bin/env node
 const { Client } = require("pg");
-require("dotenv").config();
+require("dotenv").config({ path: __dirname + "/../.env" });
 const SQL = `
 CREATE TABLE IF NOT EXISTS users (
   user_id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
@@ -27,9 +27,7 @@ async function main() {
   console.log("seeding...");
   const client = new Client({
     connectionString: process.env.DB_URI,
-    ssl: {
-      rejectUnauthorized: false,
-    },
+    ssl: { rejectUnauthorized: false },
   });
   await client.connect();
   await client.query(SQL);

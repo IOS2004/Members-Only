@@ -21,11 +21,11 @@ const validateSignup = [
     .withMessage("Password too short"),
   body("firstName")
     .trim()
-    .isLength({ min: 5 })
+    .isLength({ min: 2 })
     .withMessage("First name too short"),
   body("lastName")
     .trim()
-    .isLength({ min: 5 })
+    .isLength({ min: 2 })
     .withMessage("Last name too short"),
   body().custom((_, { req }) => {
     if (req.body.password !== req.body.confirm_password) {
