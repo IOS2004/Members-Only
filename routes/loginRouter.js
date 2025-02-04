@@ -5,6 +5,7 @@ const loginRouter = require("express").Router();
 loginRouter.get("/", controller.getLogin);
 loginRouter.post(
   "/",
+  controller.validateLogin,
   passport.authenticate("local", {
     successRedirect: "/",
     failureRedirect: "/login",
