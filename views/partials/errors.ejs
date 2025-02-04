@@ -1,0 +1,8 @@
+<% if (locals.errors && errors.length) {%>
+<h2 style="color: red">Error</h2>
+<ul>
+  <% errors.forEach(function(error) { %>
+  <li><%= error %></li>
+  <% }); %>
+</ul>
+<% } %>
