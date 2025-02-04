@@ -8,10 +8,18 @@ function getSignup(req, res) {
 }
 
 async function postSignup(req, res) {
-  const isAdmin = req.body.isAdmin ? true : false;
+  const isAdmin = req.body.admin === "on" ? true : false;
+  const isMember = isAdmin ? true : false;
   const { email, password, firstName, lastName } = req.body;
   const hashed_password = await bcrypt.hash(password, 10);
-  await db.createUser(email, hashed_password, firstName, lastName, isAdmin);
+  await db.createUser(
+    email,
+    hashed_password,
+    firstName,
+    lastName,
+    isAdmin,
+    isMember
+  );
   const user = await db.getUserByEmail(email);
   await new Promise((resolve, reject) => {
     req.login(user, (err) => {

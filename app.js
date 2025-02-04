@@ -62,9 +62,9 @@ app.get("/logout", (req, res, next) => {
   });
 });
 app.use("/", indexRouter);
-// app.use("/create-message", createMessageRouter);
+app.use("/create-message", createMessageRouter);
 app.use("/login", loginRouter);
-// app.use("/membership", membershipRouter);
+app.use("/membership", membershipRouter);
 app.use("/sign-up", signupRouter);
 
 app.use((req, res, next) => {

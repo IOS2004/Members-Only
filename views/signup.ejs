@@ -4,8 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
+    <%- include('partials/header') %>
+
     <h1>Sign Up</h1>
     <form action="/sign-up" method="post">
       <label for="FirstName">First Name:</label>
@@ -33,5 +36,6 @@
       <br />
       <button type="submit">Sign Up</button>
     </form>
+    <%- include('partials/footer') %>
   </body>
 </html>
